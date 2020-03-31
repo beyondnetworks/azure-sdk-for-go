@@ -177,13 +177,13 @@ func (client BackupLongTermRetentionPoliciesClient) Get(ctx context.Context, res
 // GetPreparer prepares the Get request.
 func (client BackupLongTermRetentionPoliciesClient) GetPreparer(ctx context.Context, resourceGroupName string, serverName string, databaseName string) (*http.Request, error) {
 	pathParameters := map[string]interface{}{
-		"databaseName":                      autorest.Encode("path", databaseName),
-		"resourceGroupName":                 autorest.Encode("path", resourceGroupName),
-		"serverName":                        autorest.Encode("path", serverName),
-		"subscriptionId":                    autorest.Encode("path", client.SubscriptionID),
+		"databaseName":      autorest.Encode("path", databaseName),
+		"resourceGroupName": autorest.Encode("path", resourceGroupName),
+		"serverName":        autorest.Encode("path", serverName),
+		"subscriptionId":    autorest.Encode("path", client.SubscriptionID),
 	}
 
-	const APIVersion = "2014-04-01"
+	const APIVersion = "2017-03-01-preview"
 	queryParameters := map[string]interface{}{
 		"api-version": APIVersion,
 	}
