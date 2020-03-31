@@ -1217,12 +1217,23 @@ type BackupLongTermRetentionPolicyListResult struct {
 	Value *[]BackupLongTermRetentionPolicy `json:"value,omitempty"`
 }
 
-// BackupLongTermRetentionPolicyProperties the properties of a backup long term retention policy
+//// BackupLongTermRetentionPolicyProperties the properties of a backup long term retention policy
+//type BackupLongTermRetentionPolicyProperties struct {
+//	// State - The status of the backup long term retention policy. Possible values include: 'BackupLongTermRetentionPolicyStateDisabled', 'BackupLongTermRetentionPolicyStateEnabled'
+//	State BackupLongTermRetentionPolicyState `json:"state,omitempty"`
+//	// RecoveryServicesBackupPolicyResourceID - The azure recovery services backup protection policy resource id
+//	RecoveryServicesBackupPolicyResourceID *string `json:"recoveryServicesBackupPolicyResourceId,omitempty"`
+//}
+// BackupLongTermRetentionPolicyProperties properties of a long term retention policy
 type BackupLongTermRetentionPolicyProperties struct {
-	// State - The status of the backup long term retention policy. Possible values include: 'BackupLongTermRetentionPolicyStateDisabled', 'BackupLongTermRetentionPolicyStateEnabled'
-	State BackupLongTermRetentionPolicyState `json:"state,omitempty"`
-	// RecoveryServicesBackupPolicyResourceID - The azure recovery services backup protection policy resource id
-	RecoveryServicesBackupPolicyResourceID *string `json:"recoveryServicesBackupPolicyResourceId,omitempty"`
+	// WeeklyRetention - The weekly retention policy for an LTR backup in an ISO 8601 format.
+	WeeklyRetention *string `json:"weeklyRetention,omitempty"`
+	// MonthlyRetention - The monthly retention policy for an LTR backup in an ISO 8601 format.
+	MonthlyRetention *string `json:"monthlyRetention,omitempty"`
+	// YearlyRetention - The yearly retention policy for an LTR backup in an ISO 8601 format.
+	YearlyRetention *string `json:"yearlyRetention,omitempty"`
+	// WeekOfYear - The week of year to take the yearly backup in an ISO 8601 format.
+	WeekOfYear *int32 `json:"weekOfYear,omitempty"`
 }
 
 // BackupLongTermRetentionVault a backup long term retention vault
