@@ -88,10 +88,11 @@ func (client BackupLongTermRetentionPoliciesClient) CreateOrUpdate(ctx context.C
 // CreateOrUpdatePreparer prepares the CreateOrUpdate request.
 func (client BackupLongTermRetentionPoliciesClient) CreateOrUpdatePreparer(ctx context.Context, resourceGroupName string, serverName string, databaseName string, parameters BackupLongTermRetentionPolicy) (*http.Request, error) {
 	pathParameters := map[string]interface{}{
-		"databaseName":      autorest.Encode("path", databaseName),
-		"resourceGroupName": autorest.Encode("path", resourceGroupName),
-		"serverName":        autorest.Encode("path", serverName),
-		"subscriptionId":    autorest.Encode("path", client.SubscriptionID),
+		"backupLongTermRetentionPolicyName": autorest.Encode("path", "Default"),
+		"databaseName":                      autorest.Encode("path", databaseName),
+		"resourceGroupName":                 autorest.Encode("path", resourceGroupName),
+		"serverName":                        autorest.Encode("path", serverName),
+		"subscriptionId":                    autorest.Encode("path", client.SubscriptionID),
 	}
 
 	const APIVersion = "2014-04-01"
@@ -104,7 +105,7 @@ func (client BackupLongTermRetentionPoliciesClient) CreateOrUpdatePreparer(ctx c
 		autorest.AsContentType("application/json; charset=utf-8"),
 		autorest.AsPut(),
 		autorest.WithBaseURL(client.BaseURI),
-		autorest.WithPathParameters("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/backupLongTermRetentionPolicies", pathParameters),
+		autorest.WithPathParameters("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/backupLongTermRetentionPolicies/{backupLongTermRetentionPolicyName}", pathParameters),
 		autorest.WithJSON(parameters),
 		autorest.WithQueryParameters(queryParameters))
 	return preparer.Prepare((&http.Request{}).WithContext(ctx))
@@ -176,7 +177,6 @@ func (client BackupLongTermRetentionPoliciesClient) Get(ctx context.Context, res
 // GetPreparer prepares the Get request.
 func (client BackupLongTermRetentionPoliciesClient) GetPreparer(ctx context.Context, resourceGroupName string, serverName string, databaseName string) (*http.Request, error) {
 	pathParameters := map[string]interface{}{
-		"backupLongTermRetentionPolicyName": autorest.Encode("path", "Default"),
 		"databaseName":                      autorest.Encode("path", databaseName),
 		"resourceGroupName":                 autorest.Encode("path", resourceGroupName),
 		"serverName":                        autorest.Encode("path", serverName),
@@ -191,7 +191,7 @@ func (client BackupLongTermRetentionPoliciesClient) GetPreparer(ctx context.Cont
 	preparer := autorest.CreatePreparer(
 		autorest.AsGet(),
 		autorest.WithBaseURL(client.BaseURI),
-		autorest.WithPathParameters("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/backupLongTermRetentionPolicies/{backupLongTermRetentionPolicyName}", pathParameters),
+		autorest.WithPathParameters("/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Sql/servers/{serverName}/databases/{databaseName}/backupLongTermRetentionPolicies", pathParameters),
 		autorest.WithQueryParameters(queryParameters))
 	return preparer.Prepare((&http.Request{}).WithContext(ctx))
 }
