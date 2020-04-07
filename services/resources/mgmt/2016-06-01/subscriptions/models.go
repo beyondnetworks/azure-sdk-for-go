@@ -427,6 +427,8 @@ type Subscription struct {
 	SubscriptionPolicies *Policies `json:"subscriptionPolicies,omitempty"`
 	// AuthorizationSource - The authorization source of the request. Valid values are one or more combinations of Legacy, RoleBased, Bypassed, Direct and Management. For example, 'Legacy, RoleBased'.
 	AuthorizationSource *string `json:"authorizationSource,omitempty"`
+	// Tags - Resource tags.
+	Tags map[string]*string `json:"tags"`
 }
 
 // TenantIDDescription tenant Id information.
